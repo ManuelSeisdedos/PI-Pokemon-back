@@ -1,16 +1,13 @@
-const { Router } = require("express");
+import Router from 'express'
+import Pokemon from '../models/Pokemon.js'
+import Type from '../models/Type.js'
+import controller from './controllers.js'
 
-const { Pokemon, Type } = require("../db");
-const {
-  getAllPokes,
-  getPokeById,
-  findPoke
-} = require("./controllers");
 const router = Router();
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
-  const pokes = await getAllPokes();
+  const pokes = await controller.getAllPokesgetAllPokes();
   if (name) {
     const pokemons = pokes.find(
       (e) => e.name.toLowerCase() === name.toLowerCase()
@@ -34,6 +31,7 @@ router.get("/:idPokemon", async (req, res) => {
 });
 
 router.post("/", async (req, res, next) => {
+  console.log(req.body)
   const {
     id,
     name,
@@ -90,4 +88,4 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,29 +1,16 @@
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-require("dotenv").config();
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const port = process.env.PORT || 3001;
-// Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(port, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  })
-});
+'use strict'
+import * as mongo from "./configs/mongoConfig.js"
+import mongoose from "mongoose"
+import app from "./app.js"
+const PORT = process.env.PORT || 3000
+
+try { 
+    mongoose.connect(`mongodb+srv://${mongo.MONGO_USER}:${mongo.MONGO_PASS}@pokemon.dx6fggo.mongodb.net/`)
+    console.log("La conexión a la base de datos se realizó correctamente.")
+} catch (error) {
+    console.log(error.messagge)
+}
+
+app.listen(PORT, () => {
+    console.log(`App listening on PORT ${PORT}`)
+})

@@ -1,5 +1,6 @@
-const { Pokemon, Type } = require("../db");
-const axios = require("axios");
+import Pokemon from '../models/Pokemon.js'
+import Type from '../models/Type.js'
+import axios from 'axios'
 
 const getPokesApi = async () => {
   const allPokes = await axios.get(
@@ -23,20 +24,13 @@ const getPokesApi = async () => {
 };
 
 const getDbPokes = async () => {
-  const result = await Pokemon.findAll({
-    include: {
-      model: Type,
-      attributes: ["tipo"],
-    },
-  });
-
+  const result = await Pokemon.find();
   const resultado = [];
   const allPokesDb = result.map((e) =>
     resultado.push({
       id: e.id,
       name: e.name,
       image: e.image,
-
       type: e.types.map((e) => e["tipo"]),
       created: "true",
       attack: e.ataque,
@@ -179,7 +173,7 @@ const deletePokemon = async (name) => {
   }
 };
 
-module.exports = {
+export default {
   getAllPokes,
   getPokeById,
   getTypesPokeApi,
