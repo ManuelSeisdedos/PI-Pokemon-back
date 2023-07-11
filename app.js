@@ -15,6 +15,6 @@ app.use(morgan('dev'))
 }));*/
 console.log("PARSASDASDAS DAQSD ASD ASD AS D")
 
-
+app.use('/', routes)
 
 export default app

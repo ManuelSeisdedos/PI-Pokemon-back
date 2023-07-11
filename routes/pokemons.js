@@ -1,4 +1,4 @@
-import Router from 'express'
+import {Router} from 'express'
 import Pokemon from '../models/Pokemon.js'
 import Type from '../models/Type.js'
 import controller from './controllers.js'
