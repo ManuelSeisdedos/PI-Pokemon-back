@@ -7,7 +7,7 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
-  const pokes = await controller.getAllPokesgetAllPokes();
+  const pokes = await controller.getAllPokes();
   if (name) {
     const pokemons = pokes.find(
       (e) => e.name.toLowerCase() === name.toLowerCase()
