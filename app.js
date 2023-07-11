@@ -6,14 +6,14 @@ import routes from './routes/index.js'
 const app = express()
 
 
-app.use(express.urlencoded({extended: true}))
+
 app.use(express.json())
 app.use(morgan('dev'))
 
 /*app.use(cors({
     origin: "https://pi-pokemon-umber.vercel.app"
 }));*/
-console.log("PARSASDASDAS DAQSD ASD ASD AS D")
+
 
 app.use('/', routes)
 
