@@ -127,13 +127,10 @@ const getTypesPokeApi = async () => {
       tipo: e.name,
     })
   );
-  //await Type.bulkCreate(result);
-  result.forEach((e) => {
-    Type.findOrCreate({
-      where: { tipo: e.tipo },
-    });
-  });
-  const pokeType = await Type.findAll();
+  
+  
+  const pokeType = await Type.find();
+  console.log(pokeType)
   return pokeType;
 };
 

@@ -3,7 +3,8 @@
 import mongoose from "mongoose"
 
 const typeSchema = new mongoose.Schema({
-    id: mongoose.Schema.Types.ObjectId,
+    
+    id: String,
     tipo: {
         type: String,
         required: true

@@ -12,7 +12,7 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   const types = await controllers.getTypesPokeApi();
-
+  console.log(types)
   return res.status(200).json(types);
 });
 
