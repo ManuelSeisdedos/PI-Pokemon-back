@@ -119,16 +119,6 @@ const getPokeById = async (id) => {
 };
 
 const getTypesPokeApi = async () => {
-  const result = [];
-  const types = await axios.get("https://pokeapi.co/api/v2/type");
-
-  const tipos = types.data.results.map((e) =>
-    result.push({
-      tipo: e.name,
-    })
-  );
-  
-  
   const pokeType = await Type.find();
   console.log(pokeType)
   return pokeType;
