@@ -10,14 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-app.use(cors({
-   
-        origin: "http://pi-pokemon-umber.vercel.app/home",
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-        preflightContinue: false,
-        optionsSuccessStatus: 204
-    
-}));
+app.use((0,cors.default())());
 
 
 app.use('/', routes)
