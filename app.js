@@ -11,7 +11,8 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 app.use(cors({
-    origin: "*"
+    origin: "*",
+    ContentType: "application/x-www-form-urlencoded"
 }));
 
 
