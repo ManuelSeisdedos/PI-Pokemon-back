@@ -10,7 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-app.use((0,cors.default())());
+app.use((0,cors.default)());
 
 
 app.use('/', routes)
