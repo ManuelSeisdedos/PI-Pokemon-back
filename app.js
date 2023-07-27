@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 
 app.use(cors({
    
-        origin: "http://pi-pokemon-umber.vercel.app/",
+        origin: "http://pi-pokemon-umber.vercel.app/home",
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         preflightContinue: false,
         optionsSuccessStatus: 204
