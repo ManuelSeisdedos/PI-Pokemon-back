@@ -10,9 +10,9 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-/*app.use(cors({
-    origin: "https://pi-pokemon-umber.vercel.app"
-}));*/
+app.use(cors({
+    origin: "*"
+}));
 
 
 app.use('/', routes)
