@@ -5,7 +5,7 @@ import app from "./app.js"
 const PORT = process.env.PORT || 3000
 
 try { 
-    mongoose.connect(`mongodb+srv://${mongo.MONGO_USER}:${mongo.MONGO_PASS}@pokemondata.dcme52o.mongodb.net/test`   
+    mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@pokemondata.dcme52o.mongodb.net/test`   
 )
     console.log("La conexión a la base de datos se realizó correctamente.")
 } catch (error) {
