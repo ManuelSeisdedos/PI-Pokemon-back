@@ -12,7 +12,7 @@ try {
     console.log(error.messagge)
 }
 
-app.listen(PORT, () => {
+app.listen(3000, () => {
     console.log(`App listening on PORT ${PORT}`)
 })
 
