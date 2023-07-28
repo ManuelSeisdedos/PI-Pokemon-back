@@ -10,15 +10,9 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-app.use((req,res,next) => {
-    req.header("Acces-Control-Allow-Origin","*");
-    req.header("Access-Control-Allow-Credentials", "true");
-    req.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-});
+app.use(cors({
+    origin: "*"
+}));
 
 
 app.use('/', routes)
